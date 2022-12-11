@@ -3,23 +3,27 @@ package Principles1.CompositionOverInheritance;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class Executor {
 
-	 //static CompanyImplCompositionConsumers company = new CompanyImplCompositionConsumers();
-	 static ApplicationContext context =
-			    new ClassPathXmlApplicationContext();
-	 @Autowired
-	 static CompanyImplCompositionConsumers company = context.getBean(CompanyImplCompositionConsumers.class);
+	/*
+	 * Assuming initially we have AirIndiaConsumer, AirChinaConsumer extending from
+	 * Company class, so if we have to add a new consumer we need to create another
+	 * class extending from the company (Supplier). This is tightly coupled. So, in
+	 * order to make it loosely coupled, we create a Consumer class and all
+	 * consumers and the new consumers we want to add now extend from Consumer
+	 * class. And the consumer class will now be composed in COMPANY class as a set
+	 * of consumers using Composition. This allows us to add any number of consumers
+	 * to a company at runtime.( where in inheritance, the company and consumer
+	 * relationships like AirIndiaConsumer has to be decided at compile time. So,
+	 * Composition allows behavior changes at runtime.
+	 */
 	
+	static CompanyImplCompositionConsumers company = new CompanyImplCompositionConsumers();
 	public static void main(String[] args) {
-
-		AirIndia airI = new AirIndia();
-		AirChina airC = new AirChina();
-		List<Consumer> li = new ArrayList<>();
+		
+		Consumer airI = new AirIndia(); // Polymorphism - different classes sharing same type/interface
+		Consumer airC = new AirChina();
+		List<Consumer> li = new ArrayList();
 		li.add(airI);
 		li.add(airC);
 		company.setConsumers(li);

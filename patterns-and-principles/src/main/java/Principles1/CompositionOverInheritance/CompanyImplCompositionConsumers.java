@@ -1,18 +1,12 @@
 package Principles1.CompositionOverInheritance;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 
 public class CompanyImplCompositionConsumers implements Company{
 	
-	// Loosely coupled compared to Inheritance
+	// Loosely coupled in Composition in some scenarios compared to Inheritance
 	// Also, now we can add or delete consumers to this Company class easily to the list
-	@Autowired
-	Consumer consumer;
+
 	static List<Consumer> consumers;
 	
 	public static List<Consumer> getConsumers() {

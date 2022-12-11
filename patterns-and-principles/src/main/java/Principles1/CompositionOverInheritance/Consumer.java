@@ -1,12 +1,9 @@
 package Principles1.CompositionOverInheritance;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Consumer {
 
 	public String getCode() {
-		return "10";
+		return null;
 	}
 
 	public void setCode(String code) {
@@ -24,7 +21,6 @@ public class Consumer {
 	
 }
 
-@Component
 class AirIndia extends Consumer{
 	
 	// all methods are inherited
@@ -33,7 +29,7 @@ class AirIndia extends Consumer{
 		}
 	
 }
-@Component
+
 class AirChina extends Consumer{
 	
 	// all methods are inherited
@@ -42,7 +38,7 @@ class AirChina extends Consumer{
 	}
 	
 }
-@Component
+
 class Qatar extends Consumer{
 	
 	// all methods are inherited
