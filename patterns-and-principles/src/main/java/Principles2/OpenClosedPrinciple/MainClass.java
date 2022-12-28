@@ -1,9 +1,18 @@
-package Principles1.ProgramToInterfaces;
+package Principles2.OpenClosedPrinciple;
 
 public class MainClass{
 
-	// Program to interfaces -> program to super types (Polymorphism) i.e. classes should use abstract classes/interfaces instead of specific class implementation directly
-	// Use interfaces or abstract classes when possible rather than concrete classes - Similar to Loose Coupling design principle but also applies for abstract classes
+	static // Classes should be open for extension but not for modification
+	// Assume we have a recipient interface with a createRecipient method and we can add more number of recipients like basic, proxy, tail at any time.
 	
+	Recipient basicRecipient;   // Using Composition Over Inheritance principle instead of inheriting/implementing the Recipient abstract class/interface
+	// Now, if we want to add new types of recipients, instead of modifying the same recipient interface(where we add a createRecipient method for tail recipient), we can create a new tail recipient class and add the create recipient method
+	Recipient tailRecipient;
+	
+	public static void main(String[] args) {
+	
+		basicRecipient.createRecipient("BasicRecipName1");
+	
+	}
 	
 }
