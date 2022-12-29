@@ -1,10 +1,7 @@
-package Principles1.LooseCoupling;
+package Principles2.LiskovSubstitutionPrinciple;
 
-public class TailRecipient implements Recipient{
-
-	public void createRecipient() {
-		createTailRecipient();
-		
-	}
+public interface TailRecipient extends IRecipient{
+	
+	void registerApplicationWithTailRecipient();
 	
 }

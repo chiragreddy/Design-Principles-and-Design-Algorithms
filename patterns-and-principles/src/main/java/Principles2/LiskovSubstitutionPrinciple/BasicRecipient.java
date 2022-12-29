@@ -1,10 +1,7 @@
-package Principles1.LooseCoupling;
+package Principles2.LiskovSubstitutionPrinciple;
 
-public class BasicRecipient implements 	Recipient{
+public interface BasicRecipient extends IRecipient{
 
-	public void createRecipient() {
-		createBasicRecipient();
-		
-	}
-
+	void registerApplicationWithBasicRecipient();
+	
 }

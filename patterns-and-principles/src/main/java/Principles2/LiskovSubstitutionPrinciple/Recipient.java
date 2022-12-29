@@ -1,7 +1,15 @@
-package Principles1.LooseCoupling;
+package Principles2.LiskovSubstitutionPrinciple;
 
-public interface Recipient {
+public abstract class Recipient {
 
-	void createRecipient();
+	// Context here is CDAD and CDAF are recipients and they should be registered with basic/tail recipients on the application server side to send data to destination
+	
+	public void sendDataToDestination(String destination) {
+		
+	}
+	
+	abstract void registerApplicationWithBasicRecipient();
+	
+	abstract void registerApplicationWithTailRecipient();
 	
 }
